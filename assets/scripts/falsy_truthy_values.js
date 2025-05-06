@@ -6,6 +6,7 @@ if (!"") console.log('empty string is falsy');
 if (!``) console.log('empty string is falsy');
 if (!'') console.log('empty string is falsy');
 if (" ") console.log('space is truthy');
+if ("abs") console.log('any string is truthy');
 if ([]) console.log('empty array is truthy');
 if ({}) console.log('Object is truthy');
 if (!null) console.log('null is falsy');
