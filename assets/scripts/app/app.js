@@ -2,7 +2,8 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 
 function getUserNumberInput() {
-    return parseInt(userInput.value);
+    const userInp = parseInt(userInput.value);
+    return isNaN(userInp) ? 0 : userInp;
 }
 
 function createAndWriteResult(operator, resultBeforeCalculation, calcNumb) {
