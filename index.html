@@ -10,7 +10,15 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/styles/app.css"/>
-    <script src="../../AppData/Local/Temp/app.js"></script>
+    <!--async vs defer in JavaScript Script Loading
+    async - load script after page is loaded
+    defer - load script after page is parsed
+    HTML Parsing: |=============| (Complete)
+    async:        |----X----|     (Runs ASAP, Fast but unpredictable. Use for standalone scripts)
+    defer:        |---------X|    (Preserves order, runs after DOM is ready. Best for most cases)
+    Default:      |----X--------| (Avoid (blocks rendering))-->
+    <script src="assets/scripts/app/vendor.js" defer></script>
+    <script src="assets/scripts/app/app.js" defer></script>
 </head>
 <body>
 <header>
@@ -30,7 +38,5 @@
     <h2 id="current-calculation">0</h2>
     <h2>Result: <span id="current-result">0</span></h2>
 </section>
-<script src="assets/scripts/app/vendor.js"></script>
-<script src="assets/scripts/app/app.js"></script>
 </body>
 </html>
