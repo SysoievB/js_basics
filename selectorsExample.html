@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Selector Demo</title>
+</head>
+<body>
+<h1 id="main-title">Welcome!</h1>
+<p class="description">This is a description.</p>
+<p class="description">Another paragraph.</p>
+<div class="box" data-type="info">Box 1</div>
+<div class="box" data-type="warning">Box 2</div>
+<ul>
+    <li>Item 1</li>
+    <li class="highlight">Item 2</li>
+</ul>
+<script>
+    //getElementById
+    const title = document.getElementById('main-title');
+    console.log(title.textContent); // "Welcome!"
+
+    //getElementsByClassName
+    const descriptions = document.getElementsByClassName('description');
+    console.log(descriptions.length); //2
+
+    //getElementsByTagName
+    const listItems = document.getElementsByTagName('li');
+    console.log(listItems.length); // 2
+
+    //querySelector
+    const firstBox = document.querySelector('.box');
+    console.log(firstBox.textContent); // "Box 1"
+
+    //querySelectorAll
+    const allBoxes = document.querySelectorAll('.box');
+    allBoxes.forEach(box => console.log(box.textContent)); // "Box 1", "Box 2"
+</script>
+</body>
+</html>
