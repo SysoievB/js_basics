@@ -5,6 +5,32 @@
   <title>Hello CRUD operations</title>
 </head>
 <body>
+    <p>Text 1</p>
+    <p>Text 2</p>
+    <script>
+  //Element creation - Однако одного создания элементов недостаточно, их еще надо добавить на веб-страницу
+  const header = document.createElement("h1");// создаем заголовок <h1>
+  console.log(header);  // <h1></h1>
 
+  const headerText = document.createTextNode("Hello World"); // создаем текстовый узел
+  console.log(headerText);  // "Hello World"
+
+  //Adding elements on web page
+  header.appendChild(headerText); // добавляем в элемент h1 текстовый узел
+  console.log(header);  // <h1>Hello World</h1>
+  document.body.appendChild(header);  //добавляем элемент h1 на страницу в элемент body
+
+  //insertBefore() - добавляет один элемент перед другим элементом
+  header.textContent = "Page Header"; // определяем текст элемента
+  // получаем первый параграф
+  const firstP = document.body.firstElementChild;
+  // добавляем элемент h1 перед параграфом firstP
+  document.body.insertBefore(header, firstP);
+
+  //removes header
+  while(header.firstChild){
+      header.removeChild(header.firstChild);
+  }
+    </script>
 </body>
 </html>
