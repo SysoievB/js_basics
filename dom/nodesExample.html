@@ -39,6 +39,16 @@ console.log(article.previousElementSibling)//null
 console.log(article.nextElementSibling)//returns full current script
 //возвращает корневой узел документа
 console.log(article.ownerDocument)//returns full document
+
+// hasChildNodes() возвращает true, если элемент содержит вложенные узлы
+if (article.hasChildNodes()) {
+    console.log(article.childNodes)//NodeList(5)
+} else {
+    console.log("No child nodes")
+}
+//childElementCount == children.length
+console.log(article.childElementCount); // 2
+console.log(article.children.length); // 2
 </script>
 </body>
 </html>
