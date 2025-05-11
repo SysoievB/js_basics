@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom TAG</title>
+</head>
+<body>
+<h1>The next TAG is custom</h1>
+<!-- my-custom-tag - prints any text in h3 font and prints it in the console -->
+<my-custom-tag>Hello from custom TAG</my-custom-tag>
+<script>
+  class CustomTag extends HTMLElement {
+      constructor() {
+          super();
+
+        const text = this.textContent;
+
+        // Replace content with h3 element
+        const h3 = document.createElement('h3');
+        h3.textContent = text;
+
+        // Clear original content and append h3
+        this.innerHTML = '';
+        this.appendChild(h3);
+        console.log(text)
+      }
+  }
+
+  customElements.define('my-custom-tag', CustomTag);
+</script>
+</body>
+</html>
