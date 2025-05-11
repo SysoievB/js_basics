@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>METANIT.COM</title>
+</head>
+<body>
+    <div id="article">
+        <h1 id="header">Home Page</h1>
+        <p>Page Text</p>
+    </div>
+<script>
+const article = document.getElementById("article");
+//возвращает имя узла
+console.log(article.nodeName);//DIV
+//возвращает тип узла в виде числа
+console.log(article.nodeType);//1
+//возвращает текст текстового узла
+console.log(article.nodeValue);//null
+//содержит коллекцию дочерних узлов
+article.childNodes.forEach(node => {console.log(node.nodeName)})//#text H1 #text P #text
+//содержит коллекцию дочерних узлов, которые являются элементами
+console.log(article.children)//HTMLCollection(2) [h1#header, p, header: h1#header]
+//возвращает первый дочерний узел текущего узла
+console.log(article.firstChild)//#text
+//возвращает последний дочерний узел текущего узла
+console.log(article.lastChild)//#text
+//возвращает первый дочерний узел, который является элементом
+console.log(article.firstElementChild)//<h1 id="header">Home Page</h1>
+//возвращает последний дочерний узел, который является элементом
+console.log(article.lastElementChild)//<p>Page Text</p>
+//возвращает предыдущий узел, который находится на одном уровне с текущим
+console.log(article.previousSibling)//#text
+//возвращает следующий узел, который находится на одном уровне с текущим
+console.log(article.nextSibling)//#text
+//возвращает предыдущий узел, который является элементом и который находится на одном уровне с текущим
+console.log(article.previousElementSibling)//null
+// возвращает следующий узел, который является элементом и который находится на одном уровне с текущим
+console.log(article.nextElementSibling)//returns full current script
+//возвращает корневой узел документа
+console.log(article.ownerDocument)//returns full document
+</script>
+</body>
+</html>
