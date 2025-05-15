@@ -136,5 +136,3 @@ const names = ["Vasia", "Pupkin", "MR", 30];
 //const surname = names[1];
 const [name, surname, ...otherInfo] = names;
 console.log(name, surname, otherInfo);//Vasia Pupkin [ 'MR', 30 ]
-
-
