@@ -52,4 +52,49 @@ const letters = ['a', 'b', 'c', 'd'];
 const lastTwo = letters.slice(-2);
 console.log(lastTwo);// ['c', 'd']
 
+//concat() - joins 2 or more arrays
+console.log("------------concat()------------")
+const arr6 = [1, 2, 3];
+const arr7 = [4, 5, 6];
+const arr8 = arr6.concat(arr7);
+console.log(arr8);
+
+//indexOf()
+console.log("------------indexOf()------------")
+const arr9 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const index = arr9.indexOf(3);//2
+console.log(index);
+console.log(arr9.indexOf(11));//-1 - not found
+
+//lastIndexOf()
+console.log("------------lastIndexOf()------------")
+const arr10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 3];
+console.log(arr10.lastIndexOf(3));//10
+console.log(arr10.lastIndexOf(11));//-1 - not found
+
+//find()
+console.log("------------find()------------")
+const index1 = arr10.find(item => item === 3);//2
+console.log(index1);
+
+//findIndex()
+console.log("------------findIndex()------------")
+const fruitsObj = [{name: 'apple'}, {name: 'banana'}, {name: 'orange'}, {name: 'kiwi'}]
+const index2 = fruitsObj.findIndex(item => item.name === 'banana');//1
+console.log(index2);
+
+//map()
+console.log("------------map()------------")
+const arr11 = [1, 2, 3, 4];
+arr11.map(item => item * 2).forEach(item => console.log(item));//[ 2, 4, 6, 8 ]
+
+//sort()
+console.log("------------sort()------------")
+const notSorted = [1, 3, 2, 5, 4];
+const sorted = notSorted.sort();
+console.log(sorted);//[ 1, 2, 3, 4, 5 ]
+
+//reverse()
+console.log("------------reverse()------------")
+console.log(sorted.reverse());//[ 5, 4, 3, 2, 1 ]
 
