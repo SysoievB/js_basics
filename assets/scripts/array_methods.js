@@ -98,3 +98,43 @@ console.log(sorted);//[ 1, 2, 3, 4, 5 ]
 console.log("------------reverse()------------")
 console.log(sorted.reverse());//[ 5, 4, 3, 2, 1 ]
 
+//filter()
+console.log("------------filter()------------")
+const arr12 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const even = arr12.filter(item => item % 2 === 0);
+console.log(even);//[ 2, 4, 6, 8, 10 ]
+
+
+//reduce()
+console.log("------------reduce()------------")
+let sum = arr12.reduce((acc, item) => acc + item, 0);
+console.log(sum);//55
+
+//split()
+console.log("------------split()------------")
+const str = 'hello world';
+const words = str.split(' ');
+console.log(words);//[ 'hello', 'world' ]
+
+//join()
+console.log("------------join()------------")
+const joined = words.join(' ');
+console.log(joined);//hello world
+
+//Spread Operator
+console.log("------------spread operator------------")
+const arr13 = [1, 2, 3, 4, 5];
+const arr14 = [arr13, 6, 7, 8];//[ [ 1, 2, 3, 4, 5 ], 6, 7, 8 ]
+const arr15 = [...arr13, 6, 7, 8];//[1, 2, 3, 4, 5, 6, 7, 8]
+console.log(arr14);
+console.log(arr15);
+console.log(Math.min(...arr15));//1
+
+//Array Destructuring
+const names = ["Vasia", "Pupkin", "MR", 30];
+//const name = names[0];
+//const surname = names[1];
+const [name, surname, ...otherInfo] = names;
+console.log(name, surname, otherInfo);//Vasia Pupkin [ 'MR', 30 ]
+
+
