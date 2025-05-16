@@ -206,3 +206,11 @@ const obj = Object.create(null); // no prototype
 obj.key = 'value';
 
 console.log(Object.prototype.hasOwnProperty.call(obj, 'key')); //  true
+
+//Dynamic property assignment is supported
+console.log("-------Dynamic property assignment is supported-------")
+const propKey = 'field 12';
+const person1 = {
+    [propKey]: 'Max'
+};
+console.log(person1['field 12']);//Max
