@@ -1,5 +1,4 @@
 console.log(`---------------------Creating & Cloning Objects---------------------`)
-
 /*
 Creates a new object with a given prototype
 * When you use Object.create(person), it creates a new object (person2) that inherits from
@@ -13,6 +12,8 @@ let person = {
 
 let person2 = Object.create(person);
 console.log(person2.age)//30
+console.log(person2['name']);//John
+console.log(person2[2]);//undefined
 
 /*
 Object.assign(target, ...src) - Copies properties from sources to target
