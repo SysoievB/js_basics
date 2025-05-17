@@ -214,3 +214,21 @@ const person1 = {
     [propKey]: 'Max'
 };
 console.log(person1['field 12']);//Max
+
+//What is object destructuring?
+//It’s a concise way to extract properties from an object and assign them to variables in one step.
+console.log('------------Destructuring---------------')
+const person3 = {
+    name: 'Alice',
+    age: 30,
+    job: 'Developer'
+};
+
+// Destructuring:
+const { name, age } = person3;
+const { name: personName, age: personAge } = person3;//setting another name for the variable
+const name3 = person3.name;
+const age3 = person3.age;
+console.log(name3, age3)//Alice 30
+console.log(name, age)//Alice 30
+console.log(personName, personAge)//Alice 30
