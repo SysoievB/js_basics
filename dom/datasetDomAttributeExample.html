@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dataset Example</title>
+</head>
+<body>
+  <h1>Products</h1>
+  <button data-product-id="101" data-name="Phone">Add Phone to Cart</button>
+  <button data-product-id="202" data-name="Laptop">Add Laptop to Cart</button>
+  <button data-product-id="303" data-name="Headphones">Add Headphones to Cart</button>
+  <script>
+    // Select all buttons
+    const buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Access data-product-id and data-name
+        const productId = button.dataset.productId;
+        const productName = button.dataset.name;
+
+        console.log(`Added to cart: ${productName} (ID: ${productId})`);
+        // You could use this info to make an API call, update UI, etc.
+      });
+    });
+  </script>
+</body>
+</html>
