@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event with this</title>
+</head>
+<body>
+<button id="button" onclick="clickFun(this)">Click me</button>
+<script>
+  let count = 0;
+  function clickFun(btn) {
+    //changing text of button
+    btn.textContent = `Clicked ${++count}`;
+  }
+</script>
+</body>
+</html>

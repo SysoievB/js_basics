@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listening events</title>
+</head>
+<body>
+<button id="button">Click me</button>
+<script>
+  const button = document.querySelector('button');
+
+  const buttonClickHandler = event => {
+      alert('Button was clicked!');
+      console.log(event.type);//указывает на имя события
+      console.log(event.bubbles);//возвращает true, если событие является восходящим. Например, если событие возникло на вложенном элементе, то оно может быть обработано на родительском элементе.
+      console.log(event.cancelable);//возвращает true, если можно отменить стандартную обработку события
+      console.log(event.currentTarget);//определяет элемент, к которому прикреплен обработчик события
+      console.log(event.target)//указывает на элемент, на котором было вызвано событие
+      console.log(event.timeStamp)//хранит время возникновения события
+      console.log(event.isTrusted)//указывает, событие было сгенерировано элементами веб-страницы или кодом JavaScript
+  };
+
+  // Attach the listener
+  button.addEventListener('click', buttonClickHandler);
+  console.log('Event listener attached.');
+
+
+  // Remove it after 2 seconds
+  setTimeout(() => {
+      button.removeEventListener('click', buttonClickHandler);
+      console.log('Event listener removed.');
+  }, 5000);//after 5 seconds an alert window will not be shown
+</script>
+</body>
+</html>
