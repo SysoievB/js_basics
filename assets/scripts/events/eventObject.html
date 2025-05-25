@@ -1,0 +1,59 @@
+<!-- Task: Implement a Product Button Click Tracker
+You have a list of products displayed on a webpage. Each product has a button that says "View Details".
+
+Your task is to:
+Create a list of at least 3 product buttons in HTML.
+Add a click event listener in JavaScript to each button.
+When the button is clicked:
+Log the product name (from a data-name attribute on the button) to the console.
+Prevent the default behavior (in case it’s inside a link).
+Log the type of the event and the target element using the Event object.
+
+🔧 Requirements:
+Use the event object (like event.target, event.type, etc.).
+Use dataset to get custom attributes (data-name).
+Use addEventListener.
+Do not use inline onclick="" handlers.
+
+Bonus Challenge:
+Display the product name in a <div> below the buttons when clicked, instead of just logging it.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Advanced Event Handling</title>
+</head>
+<body>
+  <ul id="item-list"></ul>
+
+  <script>
+    const items = [
+      { id: 1, name: "Item One" },
+      { id: 2, name: "Item Two" },
+      { id: 3, name: "Item Three" }
+    ];
+
+    const listElement = document.getElementById("item-list");
+
+    items.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item.name;
+      li.setAttribute("data-id", item.id);
+
+      const btn = document.createElement("button");
+      btn.textContent = "Show ID";
+
+      // Attach event handler
+      btn.addEventListener("click", function (event) {
+        const listItem = event.target.closest("li");
+        const id = listItem.dataset.id;
+        console.log(`Clicked item with data-id: ${id}`);
+      });
+
+      li.appendChild(btn);
+      listElement.appendChild(li);
+    });
+  </script>
+</body>
+</html>

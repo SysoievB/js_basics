@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello there</title>
+</head>
+<body>
+<h6>Body full of content</h6>
+<ul>
+  <li>Hello</li>
+  <li>Hi</li>
+  <li>Hey</li>
+</ul>
+<script>
+  console.log(document.title);//Hello there
+  console.log(document.lastModified);//05/24/2025 12:12:12
+  console.log(document.domain);//localhost
+  console.log(document.URL);//http://localhost:63342/js_basics/assets/scripts/dom/document_properties.html?_ijt=kal8a63k5
+
+  const ul = document.querySelector('ul');
+  for (item of ul.children) {
+    console.log(item.textContent);//Hello Hi Hey
+    alert(item.textContent);
+  }
+</script>
+</body>
+</html>

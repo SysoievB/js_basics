@@ -1,0 +1,41 @@
+<!-- Button Click Message
+Task Description:
+You have one button on the page. When the button is clicked:
+
+Show an alert with the message:
+"Button clicked!"
+Use the event object to:
+Log the text of the button to the console (use event.target.textContent)
+Log the event type to the console (use event.type)
+
+Requirements:
+One <button> element in HTML.
+Use addEventListener in JavaScript.
+Use the event object inside the event handler. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>On click event</title>
+</head>
+<body>
+<button id="button">Click me</button>
+<div id="rectangle1"
+     style="width:50px;height:50px;background-color:red;"
+     onclick="console.log('clicked!!!')"
+></div>
+<div id="rectangle2"
+     style="width:100px;height:100px;background-color:blue;"
+     ondblclick="console.log('double clicked!!!')"
+></div>
+<script>
+  const button = document.getElementById('button');
+
+  button.addEventListener('click', function(event) {
+    alert('Button clicked!');
+    console.log(event.target.textContent); // Logs: Click me
+    console.log(event.type);               // Logs: click
+  });
+</script>
+</body>
+</html>
