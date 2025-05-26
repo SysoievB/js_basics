@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Capturing & Bubbling</title>
+  <style>
+    .outer {
+      padding: 30px;
+      background-color: lightblue;
+    }
+
+    .middle {
+      padding: 30px;
+      background-color: lightgreen;
+    }
+
+    .inner {
+      padding: 30px;
+      background-color: lightcoral;
+    }
+
+    div {
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer">
+    Outer
+    <div class="middle">
+      Middle
+      <div class="inner">
+        Inner
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function logEvent(phase, name) {
+      console.log(`${phase} -> ${name}`);
+    }
+
+    const outer = document.querySelector('.outer');
+    const middle = document.querySelector('.middle');
+    const inner = document.querySelector('.inner');
+
+    // Capturing phase listeners (useCapture = true)
+    outer.addEventListener('click', () => logEvent('Capturing', 'Outer'), true);
+    middle.addEventListener('click', () => logEvent('Capturing', 'Middle'), true);
+    inner.addEventListener('click', () => logEvent('Capturing', 'Inner'), true);
+
+    // Bubbling phase listeners (useCapture = false)
+    outer.addEventListener('click', () => logEvent('Bubbling', 'Outer'));
+    middle.addEventListener('click', () => logEvent('Bubbling', 'Middle'));
+    inner.addEventListener('click', () => logEvent('Bubbling', 'Inner'));
+  </script>
+</body>
+</html>
