@@ -45,3 +45,12 @@ counter1(); // 2
     console.log(age); // 30
 }
 //console.log(age); // Error: "age is not defined"
+
+//Recursion
+function factorial(n) {
+    if (n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+console.log(factorial(5));//120
