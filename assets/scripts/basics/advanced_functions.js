@@ -58,3 +58,9 @@ function factorial(n) {
     return n * factorial(n - 1);
 }
 console.log(factorial(5));//120
+
+function randomNumberBetween(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(randomNumberBetween(1, 10));
