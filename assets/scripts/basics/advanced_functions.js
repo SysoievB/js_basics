@@ -1,11 +1,15 @@
-//pure function
-//Given the same input, always returns the same output.
+//Pure function - given the same input, always returns the same output.
 function add(a, b) {
     return a + b;
 }
 
-//impure function
-//Depends on or modifies external state.
+//Is the following function a pure function?
+let defaultValue = 10;
+function addNumber(num) {
+    return num + defaultValue;
+}//defaultValue is an external variable and hence the function is not guaranteed to always yield the same result.
+
+//Impure function - depends on or modifies external state.
 let counter = 0;
 function increment() {
     counter++;
