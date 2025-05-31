@@ -66,11 +66,6 @@ function randomNumberBetween(min, max) {
 console.log(randomNumberBetween(1, 10));
 
 //Promise
-//A promise can be in one of three states:
-// State	     Meaning
-// pending	     The operation is still going on (not completed yet)
-// fulfilled	 The operation completed successfully (you get a result)
-// rejected	     The operation failed (you get an error)
 const myPromise = new Promise((resolve, reject) => {
     const success = true;
 
