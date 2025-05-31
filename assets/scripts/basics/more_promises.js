@@ -67,7 +67,6 @@ function sum(x, y){
 // сокращенный вариант
 // function sum(x, y){ return Promise.resolve(x + y);}
 
-
 async function calculate(){
     const value = await sum(5, 3);
     console.log("Результат асинхронной операции:", value);
