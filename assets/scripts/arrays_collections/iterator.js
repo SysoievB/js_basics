@@ -8,6 +8,9 @@ console.log(iterator.next());//{ value: 'Galia', done: false }
 console.log(iterator.next());//{ value: undefined, done: true }
 
 console.log('--------------while--------------');
-while (!(item = iterator.next()).done) {
-    console.log(item.next().value);
+const whileIterator = people[Symbol.iterator](); // reset
+let result = whileIterator.next();
+while (!result.done) {
+    console.log(result.value);
+    result = whileIterator.next();
 }
