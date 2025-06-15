@@ -1,29 +1,43 @@
 class Tooltip extends HTMLElement {
     constructor() {
-        // Always call super() when extending built-in classes
         super();
+        this._tooltipContainer;
+        this._tooltipText = 'Some dummy tooltip text.';
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.innerHTML = `
+        <style>
+            div {
+                background-color: black;
+                color: white;
+                position: absolute;
+                z-index: 10;
+            }
+        </style>
+        <slot>Some default</slot>
+        <span> (?)</span>
+    `;
     }
 
-    // This lifecycle method is called automatically when the element
-    // is inserted into the DOM (added to the page)
     connectedCallback() {
-        console.log("It`s alive!!!"); // Debug message to confirm the element is initialized
-
-        // Create a new <span> element to act as the tooltip icon
-        const tooltipIcon = document.createElement("span");
-
-        // Set its visible text
-        tooltipIcon.textContent = ' (?) ';
-        tooltipIcon.addEventListener("mouseenter", this._showTooltip);
-        // Append the tooltip icon to the custom element
-        this.appendChild(tooltipIcon);
+        if (this.hasAttribute('text')) {
+            this._tooltipText = this.getAttribute('text');
+        }
+        const tooltipIcon = this.shadowRoot.querySelector('span');
+        tooltipIcon.addEventListener('mouseenter', this._showTooltip.bind(this));
+        tooltipIcon.addEventListener('mouseleave', this._hideTooltip.bind(this));
+        this.shadowRoot.appendChild(tooltipIcon);
+        this.style.position = 'relative';
     }
 
     _showTooltip() {
-        console.log("Tooltip");
+        this._tooltipContainer = document.createElement('div');
+        this._tooltipContainer.textContent = this._tooltipText;
+        this.shadowRoot.appendChild(this._tooltipContainer);
+    }
+
+    _hideTooltip() {
+        this.shadowRoot.removeChild(this._tooltipContainer);
     }
 }
 
-// Register the custom element with the browser
-// 'my-tooltip' is the name used in HTML, <my-tooltip></my-tooltip>
-customElements.define("my-tooltip", Tooltip);
+customElements.define('uc-tooltip', Tooltip);
