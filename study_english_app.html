@@ -6,268 +6,286 @@
     <title>Kids Vocabulary Learning</title>
     <style>
         * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          min-height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 20px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
         .app-container {
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 25px;
-          padding: 30px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-          max-width: 600px;
-          width: 100%;
-          text-align: center;
-          backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         .title {
-          font-size: 2.5em;
-          color: #4a5568;
-          margin-bottom: 30px;
-          animation: bounce 2s infinite;
+            font-size: 2.5em;
+            color: #4a5568;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
         }
 
         @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-          }
-          40% {
-            transform: translateY(-10px);
-          }
-          60% {
-            transform: translateY(-5px);
-          }
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         .score {
-          font-size: 1.2em;
-          color: #2d3748;
-          margin-bottom: 20px;
-          padding: 10px 20px;
-          background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
-          border-radius: 20px;
-          color: white;
-          font-weight: bold;
+            font-size: 1.2em;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
         }
 
         .language-selector {
-          display: flex;
-          gap: 10px;
-          justify-content: center;
-          margin-bottom: 20px;
-          flex-wrap: wrap;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .lang-btn {
-          padding: 10px 15px;
-          font-size: 1em;
-          border: none;
-          border-radius: 20px;
-          cursor: pointer;
-          font-weight: bold;
-          transition: all 0.3s ease;
-          background: linear-gradient(45deg, #e2e8f0 0%, #cbd5e0 100%);
-          color: #2d3748;
+            padding: 10px 15px;
+            font-size: 1em;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #e2e8f0 0%, #cbd5e0 100%);
+            color: #2d3748;
         }
 
         .lang-btn.active {
-          background: linear-gradient(45deg, #4299e1 0%, #3182ce 100%);
-          color: white;
-          transform: scale(1.05);
+            background: linear-gradient(45deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            transform: scale(1.05);
         }
 
         .lang-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .question-container {
-          margin-bottom: 30px;
-          padding: 20px;
-          background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
-          border-radius: 20px;
-          animation: slideIn 0.5s ease-out;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            animation: slideIn 0.5s ease-out;
         }
 
         @keyframes slideIn {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .question {
-          font-size: 1.8em;
-          color: #2d3748;
-          margin-bottom: 15px;
-          font-weight: bold;
+            font-size: 1.8em;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .word-display {
-          font-size: 2.2em;
-          color: #e53e3e;
-          font-weight: bold;
-          margin: 10px 0;
-          animation: pulse 2s infinite;
+            font-size: 2.2em;
+            color: #e53e3e;
+            font-weight: bold;
+            margin: 10px 0;
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.05);
-          }
-          100% {
-            transform: scale(1);
-          }
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         .answers-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 15px;
-          margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .answer-btn {
-          padding: 15px 20px;
-          font-size: 1.2em;
-          font-weight: bold;
-          border: none;
-          border-radius: 15px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          background: linear-gradient(45deg, #84fab0 0%, #8fd3f4 100%);
-          color: #2d3748;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3748;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .answer-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-          background: linear-gradient(45deg, #96fbc4 0%, #a3e2ff 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #96fbc4 0%, #a3e2ff 100%);
         }
 
         .answer-btn.correct {
-          background: linear-gradient(45deg, #56f39a 0%, #4cd964 100%);
-          animation: correctAnswer 0.6s ease;
+            background: linear-gradient(45deg, #56f39a 0%, #4cd964 100%);
+            animation: correctAnswer 0.6s ease;
         }
 
         .answer-btn.incorrect {
-          background: linear-gradient(45deg, #ff6b6b 0%, #ee5a52 100%);
-          animation: shake 0.6s ease;
+            background: linear-gradient(45deg, #ff6b6b 0%, #ee5a52 100%);
+            animation: shake 0.6s ease;
         }
 
         @keyframes correctAnswer {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.1); }
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-          20%, 40%, 60%, 80% { transform: translateX(5px); }
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-5px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(5px);
+            }
         }
 
         .controls {
-          display: flex;
-          gap: 15px;
-          justify-content: center;
-          margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .control-btn {
-          padding: 12px 25px;
-          font-size: 1.1em;
-          border: none;
-          border-radius: 25px;
-          cursor: pointer;
-          font-weight: bold;
-          transition: all 0.3s ease;
-          background: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
-          color: #2d3748;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
+            color: #2d3748;
         }
 
         .control-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .voice-btn {
-          background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
-          border: none;
-          border-radius: 50%;
-          width: 50px;
-          height: 50px;
-          cursor: pointer;
-          font-size: 1.5em;
-          margin-left: 10px;
-          transition: all 0.3s ease;
+            background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5em;
+            margin-left: 10px;
+            transition: all 0.3s ease;
         }
 
         .voice-btn:hover {
-          transform: scale(1.1);
+            transform: scale(1.1);
         }
 
         .feedback {
-          font-size: 1.5em;
-          font-weight: bold;
-          margin: 15px 0;
-          padding: 10px;
-          border-radius: 15px;
-          animation: fadeIn 0.5s ease;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease;
         }
 
         @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .feedback.correct {
-          color: #38a169;
-          background: rgba(56, 161, 105, 0.1);
+            color: #38a169;
+            background: rgba(56, 161, 105, 0.1);
         }
 
         .feedback.incorrect {
-          color: #e53e3e;
-          background: rgba(229, 62, 62, 0.1);
+            color: #e53e3e;
+            background: rgba(229, 62, 62, 0.1);
         }
 
         .stars {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
         }
 
         .star {
-          position: absolute;
-          color: #ffd700;
-          font-size: 20px;
-          animation: twinkle 2s infinite;
+            position: absolute;
+            color: #ffd700;
+            font-size: 20px;
+            animation: twinkle 2s infinite;
         }
 
         @keyframes twinkle {
-          0%, 100% { opacity: 0; }
-          50% { opacity: 1; }
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -307,101 +325,110 @@
     <script>
         // Vocabulary database
         const vocabulary = new Map([
-          ['dog', 'pies'],
-          ['cat', 'kot'],
-          ['house', 'dom'],
-          ['car', 'samochód'],
-          ['book', 'książka'],
-          ['water', 'woda'],
-          ['tree', 'drzewo'],
-          ['sun', 'słońce'],
-          ['moon', 'księżyc'],
-          ['flower', 'kwiat'],
-          ['bird', 'ptak'],
-          ['fish', 'ryba'],
-          ['apple', 'jabłko'],
-          ['bread', 'chleb'],
-          ['milk', 'mleko'],
-          ['big', 'duży'],
-          ['small', 'mały'],
-          // Body
-          ['head', 'głowa'],
-          ['neck', 'szyja'],
-          ['shoulder', 'ramię'],
-          ['chest', 'klatka piersiowa'],
-          ['back', 'plecy'],
-          ['elbow', 'łokieć'],
-          ['tummy', 'brzuch'],
-          ['hand', 'ręka'],
-          ['finger', 'palec'],
-          ['thumb', 'kciuk'],
-          ['bottom', 'pupa'],
-          ['knee', 'kolano'],
-          ['leg', 'noga'],
-          ['foot', 'stopa'],
-          ['feet', 'stopy'],
+            ['dog', 'pies'],
+            ['cat', 'kot'],
+            ['house', 'dom'],
+            ['car', 'samochód'],
+            ['book', 'książka'],
+            ['water', 'woda'],
+            ['tree', 'drzewo'],
+            ['sun', 'słońce'],
+            ['moon', 'księżyc'],
+            ['flower', 'kwiat'],
+            ['bird', 'ptak'],
+            ['fish', 'ryba'],
+            ['apple', 'jabłko'],
+            ['bread', 'chleb'],
+            ['milk', 'mleko'],
+            ['big', 'duży'],
+            ['small', 'mały'],
+            // Body
+            ['head', 'głowa'],
+            ['neck', 'szyja'],
+            ['shoulder', 'ramię'],
+            ['chest', 'klatka piersiowa'],
+            ['back', 'plecy'],
+            ['elbow', 'łokieć'],
+            ['tummy', 'brzuch'],
+            ['hand', 'ręka'],
+            ['finger', 'palec'],
+            ['thumb', 'kciuk'],
+            ['bottom', 'pupa'],
+            ['knee', 'kolano'],
+            ['leg', 'noga'],
+            ['foot', 'stopa'],
+            ['feet', 'stopy'],
 
-          // Face
-          ['hair', 'włosy'],
-          ['forehead', 'czoło'],
-          ['eyebrow', 'brew'],
-          ['eye', 'oko'],
-          ['ear', 'ucho'],
-          ['nose', 'nos'],
-          ['mouth', 'usta'],
-          ['lip', 'warga'],
-          ['tooth', 'ząb'],
-          ['teeth', 'zęby'],
-          ['tongue', 'język'],
-          ['chin', 'podbródek'],
-          ['cheek', 'policzek'],
+            // Face
+            ['hair', 'włosy'],
+            ['forehead', 'czoło'],
+            ['eyebrow', 'brew'],
+            ['eye', 'oko'],
+            ['ear', 'ucho'],
+            ['nose', 'nos'],
+            ['mouth', 'usta'],
+            ['lip', 'warga'],
+            ['tooth', 'ząb'],
+            ['teeth', 'zęby'],
+            ['tongue', 'język'],
+            ['chin', 'podbródek'],
+            ['cheek', 'policzek'],
 
-          // Hair types/styles
-          ['straight', 'proste'],
-          ['long', 'długie'],
-          ['short', 'krótkie'],
-          ['curly', 'kręcone'],
-          ['ponytail', 'kucyk'],
-          ['plaits', 'warkocze'],
+            // Hair types/styles
+            ['straight', 'proste'],
+            ['long', 'długie'],
+            ['short', 'krótkie'],
+            ['curly', 'kręcone'],
+            ['ponytail', 'kucyk'],
+            ['plaits', 'warkocze'],
 
-          // Colors
-          //['navy blue', 'granatowy'],
-          ['yellow', 'żółty'],
-          ['orange', 'pomarańczowy'],
-          ['green', 'zielony'],
-          ['silver', 'srebrny'],
-          ['red', 'czerwony'],
-          ['blue', 'niebieski'],
-          ['pink', 'różowy'],
-          ['white', 'biały'],
-          //['turquoise', 'turkusowy'],
-          ['grey', 'szary'],
-          ['purple', 'fioletowy'],
-          ['gold', 'złoty'],
-          ['brown', 'brązowy'],
-          ['black', 'czarny'],
+            // Colors
+            //['navy blue', 'granatowy'],
+            ['yellow', 'żółty'],
+            ['orange', 'pomarańczowy'],
+            ['green', 'zielony'],
+            ['silver', 'srebrny'],
+            ['red', 'czerwony'],
+            ['blue', 'niebieski'],
+            ['pink', 'różowy'],
+            ['white', 'biały'],
+            //['turquoise', 'turkusowy'],
+            ['grey', 'szary'],
+            ['purple', 'fioletowy'],
+            ['gold', 'złoty'],
+            ['brown', 'brązowy'],
+            ['black', 'czarny'],
 
-          // Family
-          ['father', 'ojciec'],
-          ['dad', 'tata'],
-          ['daddy', 'tatuś'],
-          ['mother', 'matka'],
-          ['mom', 'mama'],
-          ['mommy', 'mamusia'],
-          ['son', 'syn'],
-          ['daughter', 'córka'],
-          ['adult', 'dorosły'],
-          ['man', 'mężczyzna'],
-          ['woman', 'kobieta'],
-          ['girl', 'dziewczyna'],
-          ['boy', 'chłopiec'],
-          ['child', 'dziecko'],
-          ['baby', 'niemowlę'],
-          ['parent', 'rodzic'],
-          ['sister', 'siostra'],
-          ['brother', 'brat'],
-          ['person', 'osoba'],
-          ['people', 'ludzie']
+            // Family
+            ['father', 'ojciec'],
+            ['dad', 'tata'],
+            ['daddy', 'tatuś'],
+            ['mother', 'matka'],
+            ['mom', 'mama'],
+            ['mommy', 'mamusia'],
+            ['son', 'syn'],
+            ['daughter', 'córka'],
+            ['adult', 'dorosły'],
+            ['man', 'mężczyzna'],
+            ['woman', 'kobieta'],
+            ['girl', 'dziewczyna'],
+            ['boy', 'chłopiec'],
+            ['child', 'dziecko'],
+            ['baby', 'niemowlę'],
+            ['parent', 'rodzic'],
+            ['sister', 'siostra'],
+            ['brother', 'brat'],
+            ['person', 'osoba'],
+            ['people', 'ludzie'],
+
+            // Furniture & prepositions
+            ['bin', 'kosz'],
+            ['cupboard', 'szafka'],
+            ['shelf', 'półka'],
+            ['desk', 'biurko'],
+            ['in', 'w'],
+            ['on', 'na'],
+            ['under', 'pod']
         ]);
 
         let currentQuestion = {};
@@ -414,236 +441,236 @@
         const synth = window.speechSynthesis;
 
         function getRandomElements(arr, count) {
-          const shuffled = [...arr].sort(() => 0.5 - Math.random());
-          return shuffled.slice(0, count);
+            const shuffled = [...arr].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
         }
 
         function generateQuestion() {
-          isAnswered = false;
-          const vocabArray = Array.from(vocabulary.entries());
-          const [correctEng, correctPol] = vocabArray[Math.floor(Math.random() * vocabArray.length)];
+            isAnswered = false;
+            const vocabArray = Array.from(vocabulary.entries());
+            const [correctEng, correctPol] = vocabArray[Math.floor(Math.random() * vocabArray.length)];
 
-          // Choose question type based on selected mode
-          let isEngToPol;
-          if (languageMode === 'engToPol') {
-            isEngToPol = true;
-          } else if (languageMode === 'polToEng') {
-            isEngToPol = false;
-          } else {
-            // Random mode
-            isEngToPol = Math.random() < 0.5;
-          }
+            // Choose question type based on selected mode
+            let isEngToPol;
+            if (languageMode === 'engToPol') {
+                isEngToPol = true;
+            } else if (languageMode === 'polToEng') {
+                isEngToPol = false;
+            } else {
+                // Random mode
+                isEngToPol = Math.random() < 0.5;
+            }
 
-          if (isEngToPol) {
-            // English to Polish
-            currentQuestion = {
-              type: 'engToPol',
-              word: correctEng,
-              correctAnswer: correctPol,
-              questionText: `What does "${correctEng}" mean in Polish?`,
-              fullQuestionText: `What does ${correctEng} mean in Polish?`,
-              questionLang: 'en',
-              answerLang: 'pl'
-            };
+            if (isEngToPol) {
+                // English to Polish
+                currentQuestion = {
+                    type: 'engToPol',
+                    word: correctEng,
+                    correctAnswer: correctPol,
+                    questionText: `What does "${correctEng}" mean in Polish?`,
+                    fullQuestionText: `What does ${correctEng} mean in Polish?`,
+                    questionLang: 'en',
+                    answerLang: 'pl'
+                };
 
-            // Generate wrong answers (other Polish words)
-            const wrongAnswers = getRandomElements(
+                // Generate wrong answers (other Polish words)
+                const wrongAnswers = getRandomElements(
                     Array.from(vocabulary.values()).filter(val => val !== correctPol),
                     3
-            );
-            currentQuestion.options = [correctPol, ...wrongAnswers].sort(() => 0.5 - Math.random());
+                );
+                currentQuestion.options = [correctPol, ...wrongAnswers].sort(() => 0.5 - Math.random());
 
-          } else {
-            // Polish to English
-            currentQuestion = {
-              type: 'polToEng',
-              word: correctPol,
-              correctAnswer: correctEng,
-              questionText: `Jak powiesz "${correctPol}" po angielsku?`,
-              fullQuestionText: `Jak powiesz ${correctPol} po angielsku?`,
-              questionLang: 'pl',
-              answerLang: 'en'
-            };
+            } else {
+                // Polish to English
+                currentQuestion = {
+                    type: 'polToEng',
+                    word: correctPol,
+                    correctAnswer: correctEng,
+                    questionText: `Jak powiesz "${correctPol}" po angielsku?`,
+                    fullQuestionText: `Jak powiesz ${correctPol} po angielsku?`,
+                    questionLang: 'pl',
+                    answerLang: 'en'
+                };
 
-            // Generate wrong answers (other English words)
-            const wrongAnswers = getRandomElements(
+                // Generate wrong answers (other English words)
+                const wrongAnswers = getRandomElements(
                     Array.from(vocabulary.keys()).filter(key => key !== correctEng),
                     3
-            );
-            currentQuestion.options = [correctEng, ...wrongAnswers].sort(() => 0.5 - Math.random());
-          }
+                );
+                currentQuestion.options = [correctEng, ...wrongAnswers].sort(() => 0.5 - Math.random());
+            }
 
-          displayQuestion();
+            displayQuestion();
         }
 
         function displayQuestion() {
-          document.getElementById('question').textContent = currentQuestion.questionText;
-          document.getElementById('word').textContent = currentQuestion.word;
-          document.getElementById('feedback').textContent = '';
-          document.getElementById('feedback').className = 'feedback';
+            document.getElementById('question').textContent = currentQuestion.questionText;
+            document.getElementById('word').textContent = currentQuestion.word;
+            document.getElementById('feedback').textContent = '';
+            document.getElementById('feedback').className = 'feedback';
 
-          const answersContainer = document.getElementById('answers');
-          answersContainer.innerHTML = '';
+            const answersContainer = document.getElementById('answers');
+            answersContainer.innerHTML = '';
 
-          currentQuestion.options.forEach(option => {
-            const button = document.createElement('button');
-            button.className = 'answer-btn';
-            button.textContent = option;
-            button.onclick = () => checkAnswer(option, button);
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'answer-btn';
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option, button);
 
-            // Add voice button for each answer
-            const voiceSpan = document.createElement('span');
-            voiceSpan.innerHTML = ` <button class="voice-btn" onclick="speakText('${option}', '${currentQuestion.answerLang}')" style="width: 30px; height: 30px; font-size: 1em; margin-left: 10px;">🔊</button>`;
-            button.appendChild(voiceSpan.firstChild);
+                // Add voice button for each answer
+                const voiceSpan = document.createElement('span');
+                voiceSpan.innerHTML = ` <button class="voice-btn" onclick="speakText('${option}', '${currentQuestion.answerLang}')" style="width: 30px; height: 30px; font-size: 1em; margin-left: 10px;">🔊</button>`;
+                button.appendChild(voiceSpan.firstChild);
 
-            answersContainer.appendChild(button);
-          });
+                answersContainer.appendChild(button);
+            });
         }
 
         function checkAnswer(selectedAnswer, buttonElement) {
-          if (isAnswered) return;
+            if (isAnswered) return;
 
-          isAnswered = true;
-          totalQuestions++;
+            isAnswered = true;
+            totalQuestions++;
 
-          const buttons = document.querySelectorAll('.answer-btn');
-          buttons.forEach(btn => btn.style.pointerEvents = 'none');
+            const buttons = document.querySelectorAll('.answer-btn');
+            buttons.forEach(btn => btn.style.pointerEvents = 'none');
 
-          if (selectedAnswer === currentQuestion.correctAnswer) {
-            score++;
-            buttonElement.classList.add('correct');
-            document.getElementById('feedback').textContent = '🎉 Świetnie! Dobrze!';
-            document.getElementById('feedback').classList.add('correct');
-            createStars();
-            speakText('Świetnie! Dobrze!', 'pl');
-          } else {
-            buttonElement.classList.add('incorrect');
-            // Highlight correct answer
-            buttons.forEach(btn => {
-              if (btn.textContent.includes(currentQuestion.correctAnswer)) {
-                btn.classList.add('correct');
-              }
-            });
-            document.getElementById('feedback').textContent = `❌ Źle! Poprawna odpowiedź to: ${currentQuestion.correctAnswer}`;
-            document.getElementById('feedback').classList.add('incorrect');
-            speakText(`Źle! Poprawna odpowiedź to ${currentQuestion.correctAnswer}`, currentQuestion.answerLang);
-          }
+            if (selectedAnswer === currentQuestion.correctAnswer) {
+                score++;
+                buttonElement.classList.add('correct');
+                document.getElementById('feedback').textContent = '🎉 Świetnie! Dobrze!';
+                document.getElementById('feedback').classList.add('correct');
+                createStars();
+                speakText('Świetnie! Dobrze!', 'pl');
+            } else {
+                buttonElement.classList.add('incorrect');
+                // Highlight correct answer
+                buttons.forEach(btn => {
+                    if (btn.textContent.includes(currentQuestion.correctAnswer)) {
+                        btn.classList.add('correct');
+                    }
+                });
+                document.getElementById('feedback').textContent = `❌ Źle! Poprawna odpowiedź to: ${currentQuestion.correctAnswer}`;
+                document.getElementById('feedback').classList.add('incorrect');
+                speakText(`Źle! Poprawna odpowiedź to ${currentQuestion.correctAnswer}`, currentQuestion.answerLang);
+            }
 
-          document.getElementById('score').textContent = score;
-          document.getElementById('total').textContent = totalQuestions;
+            document.getElementById('score').textContent = score;
+            document.getElementById('total').textContent = totalQuestions;
 
-          setTimeout(() => {
-            buttons.forEach(btn => btn.style.pointerEvents = 'auto');
-          }, 2000);
+            setTimeout(() => {
+                buttons.forEach(btn => btn.style.pointerEvents = 'auto');
+            }, 2000);
         }
 
         function nextQuestion() {
-          generateQuestion();
+            generateQuestion();
         }
 
         function resetGame() {
-          score = 0;
-          totalQuestions = 0;
-          document.getElementById('score').textContent = score;
-          document.getElementById('total').textContent = totalQuestions;
-          generateQuestion();
+            score = 0;
+            totalQuestions = 0;
+            document.getElementById('score').textContent = score;
+            document.getElementById('total').textContent = totalQuestions;
+            generateQuestion();
         }
 
         function speakQuestion() {
-          // Speak the complete question including "po angielsku" or "in Polish"
-          speakText(currentQuestion.fullQuestionText, currentQuestion.questionLang);
+            // Speak the complete question including "po angielsku" or "in Polish"
+            speakText(currentQuestion.fullQuestionText, currentQuestion.questionLang);
 
-          // After question is spoken, speak all possible answers with a slight delay
-          setTimeout(() => {
-            const optionsText = currentQuestion.options.join(', ');
-            speakText(optionsText, currentQuestion.answerLang);
-          }, 2500); // 2.5 second delay after question
+            // After question is spoken, speak all possible answers with a slight delay
+            setTimeout(() => {
+                const optionsText = currentQuestion.options.join(', ');
+                speakText(optionsText, currentQuestion.answerLang);
+            }, 2500); // 2.5 second delay after question
         }
 
         function speakText(text, language = 'en') {
-          if (synth.speaking) {
-            synth.cancel();
-          }
-
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.rate = 0.8;
-          utterance.pitch = 1.1;
-          utterance.volume = 1;
-
-          // Choose voice based on language
-          const voices = synth.getVoices();
-          let preferredVoice;
-
-          if (language === 'pl') {
-            // Try to find Polish voice
-            preferredVoice = voices.find(voice =>
-                    voice.lang.includes('pl')
-            ) || voices.find(voice =>
-                    voice.lang.includes('en') && voice.name.includes('Female')
-            ) || voices.find(voice => voice.lang.includes('en')) || voices[0];
-          } else {
-            // Use English voice
-            preferredVoice = voices.find(voice =>
-                    voice.lang.includes('en') && voice.name.includes('Female')
-            ) || voices.find(voice => voice.lang.includes('en')) || voices[0];
-          }
-
-          if (preferredVoice) {
-            utterance.voice = preferredVoice;
-            if (language === 'pl') {
-              utterance.lang = 'pl-PL';
-            } else {
-              utterance.lang = 'en-US';
+            if (synth.speaking) {
+                synth.cancel();
             }
-          }
 
-          synth.speak(utterance);
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.8;
+            utterance.pitch = 1.1;
+            utterance.volume = 1;
+
+            // Choose voice based on language
+            const voices = synth.getVoices();
+            let preferredVoice;
+
+            if (language === 'pl') {
+                // Try to find Polish voice
+                preferredVoice = voices.find(voice =>
+                    voice.lang.includes('pl')
+                ) || voices.find(voice =>
+                    voice.lang.includes('en') && voice.name.includes('Female')
+                ) || voices.find(voice => voice.lang.includes('en')) || voices[0];
+            } else {
+                // Use English voice
+                preferredVoice = voices.find(voice =>
+                    voice.lang.includes('en') && voice.name.includes('Female')
+                ) || voices.find(voice => voice.lang.includes('en')) || voices[0];
+            }
+
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+                if (language === 'pl') {
+                    utterance.lang = 'pl-PL';
+                } else {
+                    utterance.lang = 'en-US';
+                }
+            }
+
+            synth.speak(utterance);
         }
 
         function setLanguageMode(mode) {
-          languageMode = mode;
+            languageMode = mode;
 
-          // Update button styles
-          document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-          if (mode === 'random') {
-            document.getElementById('randomBtn').classList.add('active');
-          } else if (mode === 'engToPol') {
-            document.getElementById('engToPolBtn').classList.add('active');
-          } else if (mode === 'polToEng') {
-            document.getElementById('polToEngBtn').classList.add('active');
-          }
+            // Update button styles
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if (mode === 'random') {
+                document.getElementById('randomBtn').classList.add('active');
+            } else if (mode === 'engToPol') {
+                document.getElementById('engToPolBtn').classList.add('active');
+            } else if (mode === 'polToEng') {
+                document.getElementById('polToEngBtn').classList.add('active');
+            }
 
-          // Generate new question with selected mode
-          generateQuestion();
+            // Generate new question with selected mode
+            generateQuestion();
         }
 
         function speakAllAnswers() {
-          const optionsText = currentQuestion.options.join(', ');
-          speakText(optionsText, currentQuestion.answerLang);
+            const optionsText = currentQuestion.options.join(', ');
+            speakText(optionsText, currentQuestion.answerLang);
         }
 
         function createStars() {
-          const starsContainer = document.getElementById('stars');
-          for (let i = 0; i < 5; i++) {
-            setTimeout(() => {
-              const star = document.createElement('div');
-              star.className = 'star';
-              star.textContent = '⭐';
-              star.style.left = Math.random() * 100 + '%';
-              star.style.top = Math.random() * 100 + '%';
-              star.style.animationDelay = Math.random() * 2 + 's';
-              starsContainer.appendChild(star);
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.textContent = '⭐';
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 2 + 's';
+                    starsContainer.appendChild(star);
 
-              setTimeout(() => {
-                star.remove();
-              }, 3000);
-            }, i * 200);
-          }
+                    setTimeout(() => {
+                        star.remove();
+                    }, 3000);
+                }, i * 200);
+            }
         }
 
         // Wait for voices to load
-        speechSynthesis.onvoiceschanged = function() {
-          // Voices loaded
+        speechSynthesis.onvoiceschanged = function () {
+            // Voices loaded
         };
 
         // Initialize the game
