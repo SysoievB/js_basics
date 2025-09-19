@@ -325,7 +325,7 @@
     <script>
         // Vocabulary database
         const vocabulary = new Map([
-            ['dog', 'pies'],
+            /*['dog', 'pies'],
             ['cat', 'kot'],
             ['house', 'dom'],
             ['car', 'samochód'],
@@ -419,7 +419,7 @@
             ['sister', 'siostra'],
             ['brother', 'brat'],
             ['person', 'osoba'],
-            ['people', 'ludzie'],
+            ['people', 'ludzie'],*/
 
             // Furniture & prepositions
             ['bin', 'kosz'],
@@ -551,6 +551,7 @@
                         btn.classList.add('correct');
                     }
                 });
+                /*todo here add possibility to choose one more time*/
                 document.getElementById('feedback').textContent = `❌ Źle! Poprawna odpowiedź to: ${currentQuestion.correctAnswer}`;
                 document.getElementById('feedback').classList.add('incorrect');
                 speakText(`Źle! Poprawna odpowiedź to ${currentQuestion.correctAnswer}`, currentQuestion.answerLang);
