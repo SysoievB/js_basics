@@ -296,8 +296,10 @@
         <h1 class="title">🌟 Learn New Words! 🌟</h1>
 
         <div class="score">
-            Score: <span id="score">0</span> / <span id="total">0</span>
+              Score: <span id="score">0</span> / <span id="total">0</span> Record Score: <span id="record-score">0
+        </span>
         </div>
+
 
         <div class="language-selector">
             <button class="lang-btn active" id="randomBtn" onclick="setLanguageMode('random')">Random Mode</button>
@@ -433,6 +435,8 @@
 
         let currentQuestion = {};
         let score = 0;
+        let currentRecordScore = parseInt(localStorage.getItem('record-score')) || 0;
+
         let totalQuestions = 0;
         let isAnswered = false;
         let languageMode = 'random'; // 'random', 'engToPol', 'polToEng'
@@ -443,6 +447,13 @@
         function getRandomElements(arr, count) {
             const shuffled = [...arr].sort(() => 0.5 - Math.random());
             return shuffled.slice(0, count);
+        }
+
+        function saveRecordScore(score) {
+            if (score > currentRecordScore) {
+                currentRecordScore = score;
+                localStorage.setItem('record-score', score);
+            }
         }
 
         function generateQuestion() {
@@ -468,7 +479,7 @@
                     word: correctEng,
                     correctAnswer: correctPol,
                     questionText: `What does "${correctEng}" mean in Polish?`,
-                    fullQuestionText: `What does ${correctEng} mean in Polish?`,
+                    fullQuestionText: `${correctEng}`,//`What does ${correctEng} mean in Polish?`,
                     questionLang: 'en',
                     answerLang: 'pl'
                 };
@@ -487,7 +498,7 @@
                     word: correctPol,
                     correctAnswer: correctEng,
                     questionText: `Jak powiesz "${correctPol}" po angielsku?`,
-                    fullQuestionText: `Jak powiesz ${correctPol} po angielsku?`,
+                    fullQuestionText: `${correctPol}`,//`Jak powiesz ${correctPol} po angielsku?`,
                     questionLang: 'pl',
                     answerLang: 'en'
                 };
@@ -538,6 +549,7 @@
 
             if (selectedAnswer === currentQuestion.correctAnswer) {
                 score++;
+                saveRecordScore(score);
                 buttonElement.classList.add('correct');
                 document.getElementById('feedback').textContent = '🎉 Świetnie! Dobrze!';
                 document.getElementById('feedback').classList.add('correct');
@@ -555,9 +567,11 @@
                 document.getElementById('feedback').textContent = `❌ Źle! Poprawna odpowiedź to: ${currentQuestion.correctAnswer}`;
                 document.getElementById('feedback').classList.add('incorrect');
                 speakText(`Źle! Poprawna odpowiedź to ${currentQuestion.correctAnswer}`, currentQuestion.answerLang);
+                //speakText(`Sprobuj jeszcze raz`, currentQuestion.answerLang);
             }
 
             document.getElementById('score').textContent = score;
+            document.getElementById('record-score').textContent = currentRecordScore;
             document.getElementById('total').textContent = totalQuestions;
 
             setTimeout(() => {
