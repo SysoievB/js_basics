@@ -436,7 +436,7 @@
         let currentQuestion = {};
         let score = 0;
         let currentRecordScore = parseInt(localStorage.getItem('record-score')) || 0;
-
+        document.getElementById('record-score').textContent = currentRecordScore;
         let totalQuestions = 0;
         let isAnswered = false;
         let languageMode = 'random'; // 'random', 'engToPol', 'polToEng'
