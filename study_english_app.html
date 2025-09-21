@@ -563,7 +563,6 @@
                         btn.classList.add('correct');
                     }
                 });
-                /*todo here add possibility to choose one more time*/
                 document.getElementById('feedback').textContent = `❌ Źle! Poprawna odpowiedź to: ${currentQuestion.correctAnswer}`;
                 document.getElementById('feedback').classList.add('incorrect');
                 speakText(`Źle! Poprawna odpowiedź to ${currentQuestion.correctAnswer}`, currentQuestion.answerLang);
